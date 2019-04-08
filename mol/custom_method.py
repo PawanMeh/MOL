@@ -16,7 +16,7 @@ def auto_approve_leaves():
 		try:
 			leave_doc.submit()
 		except Exception as e:
-			error_string = "Auto-approve timesheet: " + leave['name']
+			error_string = "Auto-approve leave: " + leave['name']
 			frappe.log_error(message = e, title = error_string)
 
 def auto_approve_timesheet():
