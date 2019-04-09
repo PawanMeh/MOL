@@ -24,8 +24,8 @@ def get_columns(leave_types):
 	]
 
 	for leave_type in leave_types:
-		columns.append(_(leave_type) + " " + _("Leave opening") + ":Float:160")
-		columns.append(_(leave_type) + " " + _("Leaves Added") + ":Float:160")
+		columns.append(_(leave_type) + " " + _("Ppening") + ":Float:160")
+		columns.append(_(leave_type) + " " + _("Added") + ":Float:160")
 		columns.append(_(leave_type) + " " + _("Taken") + ":Float:160")
 		columns.append(_(leave_type) + " " + _("Balance") + ":Float:160")
 
