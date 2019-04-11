@@ -40,9 +40,9 @@ def validate_attendance(self, method):
 		frappe.throw(_("Out time should be greater than in time"))
 	time_diff_hours = time_diff_in_hours(self.out_time, self.in_time)
 	if self.status in ["Present", "Half Day"]:
-		if time_diff_hours > 8:
+		if time_diff_hours >= 8:
 			self.status = "Present"
-		elif (time_diff_hours >= 4.5 and time_diff_hours < 8):
+		elif (time_diff_hours >= 4 and time_diff_hours < 8):
 			self.status = "Half Day"
 		else:
 			frappe.throw(_("To mark attendance as Present or Half Day, hours should be greater than 4.5"))
