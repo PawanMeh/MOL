@@ -45,4 +45,4 @@ def validate_attendance(self, method):
 		elif (time_diff_hours >= 4 and time_diff_hours < 8):
 			self.status = "Half Day"
 		else:
-			frappe.throw(_("To mark attendance as Present or Half Day, hours should be greater than 4.5"))
+			frappe.throw(_("To mark attendance as Present or Half Day, hours should be greater than or equal to 4"))
