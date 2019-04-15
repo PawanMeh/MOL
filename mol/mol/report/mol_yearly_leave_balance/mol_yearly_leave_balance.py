@@ -59,11 +59,14 @@ def get_data(filters, leave_types):
 				allocation_records_based_on_to_date_prev_year.get(employee.name, frappe._dict()))
 			# opening balance
 			opening = get_total_allocated_leaves(employee.name, leave_type, end_date)
+			added_leave_bal = 0
+			if (opening - prev_year_opening) > 0:
+				added_leave_bal = opening - prev_year_opening
 			# closing balance
 			closing = get_leave_balance_on(employee.name, leave_type, end_date,
 				allocation_records_based_on_to_date.get(employee.name, frappe._dict()))
 
-			row += [prev_year_opening, opening, leaves_taken, closing]
+			row += [prev_year_opening, added_leave_bal, leaves_taken, closing]
 
 		data.append(row)
 
