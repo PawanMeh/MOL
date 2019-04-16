@@ -28,7 +28,7 @@ def auto_approve_timesheet():
 												''', as_dict = 1)
 	for timesheet in timesheet_pending_approval:
 		timesheet_doc = frappe.get_doc("Timesheet", timesheet['name'])
-		timesheet_doc.approval_status = "Approved"
+		timesheet_doc.mol_approval_status = "Approved"
 		try:
 			timesheet_doc.submit()
 		except Exception as e:
