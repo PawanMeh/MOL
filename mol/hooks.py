@@ -89,6 +89,9 @@ app_license = "MIT"
 doc_events = {
 	"Attendance": {
 		"validate": "mol.custom_method.validate_attendance"
+		},
+	"Leave Application": {
+		"validate": "mol.custom_method.validate_comp_off"
 		}
 	}
 # Scheduled Tasks
