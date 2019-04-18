@@ -61,7 +61,7 @@ def validate_comp_off(self, method):
 			comp_off_detail = frappe.db.sql('''select work_from_date
 											from `tabCompensatory Leave Request`
 											where name = %s
-											and docstatus != 2''', self.comp_off, self.name)
+											and docstatus != 2''', self.comp_off)
 
 			if comp_off_detail:
 				if date_diff(self.from_date, comp_off_detail[0][0]) < 0:
