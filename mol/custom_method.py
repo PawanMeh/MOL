@@ -54,7 +54,7 @@ def validate_comp_off(self, method):
 											from `tabLeave Application`
 											where comp_off = %s
 											and docstatus != 2
-											and name != %s''', self.comp_off, self.name)
+											and name != %s''', (self.comp_off, self.name))
 			if leave_app:
 				frappe.throw(_("Comp Off {0} already exists in Leave Application {1}".format(self.comp_off, leave_app[0][0])))
 
