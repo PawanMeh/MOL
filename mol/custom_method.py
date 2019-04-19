@@ -74,3 +74,30 @@ def validate_leaves(self, method):
 	else:
 		if date_diff(today(), self.from_date) > 15:
 			frappe.throw(_("Leave application should be within 15 days of actual leave dates"))
+
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_timesheet(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_pcq(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_po(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_expense(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_so(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))
+
+def validate_quote(self, method):
+	if self.docstatus == 1 and self.owner == frappe.session.user:
+		frappe.throw(_("You cannot approve your own document"))

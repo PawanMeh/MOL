@@ -92,6 +92,24 @@ doc_events = {
 		},
 	"Leave Application": {
 		"validate": "mol.custom_method.validate_leaves"
+		},
+	"Timesheet": {
+		"validate": "mol.custom_method.validate_timesheet"
+		},
+	"PCQ Form": {
+		"validate": "mol.custom_method.validate_pcq"
+		},
+	"Purchase Order": {
+		"validate": "mol.custom_method.validate_po"
+		},
+	"Expense Claim": {
+		"validate": "mol.custom_method.validate_expense"
+		},
+	"Sales Order": {
+		"validate": "mol.custom_method.validate_so"
+		},
+	"Quotation": {
+		"validate": "mol.custom_method.validate_quote"
 		}
 	}
 # Scheduled Tasks
