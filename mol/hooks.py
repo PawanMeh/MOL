@@ -91,7 +91,7 @@ doc_events = {
 		"validate": "mol.custom_method.validate_attendance"
 		},
 	"Leave Application": {
-		"validate": "mol.custom_method.validate_comp_off"
+		"validate": "mol.custom_method.validate_leaves"
 		}
 	}
 # Scheduled Tasks

@@ -47,7 +47,7 @@ def validate_attendance(self, method):
 		else:
 			frappe.throw(_("To mark attendance as Present or Half Day, hours should be greater than or equal to 4"))
 
-def validate_comp_off(self, method):
+def validate_leaves(self, method):
 	if self.leave_type == "Compensatory off":
 		if self.comp_off:
 			leave_app = frappe.db.sql('''select name
@@ -71,3 +71,6 @@ def validate_comp_off(self, method):
 						frappe.throw(_("Comp Off should be used within 3 months"))
 		else:
 			frappe.throw(_("Please select comp off against which you are applying compensatory off"))
+	else:
+		if date_diff(self.from_date, today) > 15:
+			frappe.throw(_("Leave application should be within 15 days of actual leave dates"))
