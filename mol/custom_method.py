@@ -72,5 +72,5 @@ def validate_leaves(self, method):
 		else:
 			frappe.throw(_("Please select comp off against which you are applying compensatory off"))
 	else:
-		if date_diff(self.from_date, today) > 15:
+		if date_diff(today(), self.from_date) > 15:
 			frappe.throw(_("Leave application should be within 15 days of actual leave dates"))
