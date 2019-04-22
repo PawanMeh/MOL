@@ -13,6 +13,7 @@ def auto_approve_leaves():
 	for leave in leave_pending_approval:
 		leave_doc = frappe.get_doc("Leave Application", leave['name'])
 		leave_doc.approval_status = "Approved"
+		leave_doc.mol_auto_approved = "Yes"
 		try:
 			leave_doc.submit()
 		except Exception as e:
@@ -29,6 +30,7 @@ def auto_approve_timesheet():
 	for timesheet in timesheet_pending_approval:
 		timesheet_doc = frappe.get_doc("Timesheet", timesheet['name'])
 		timesheet_doc.mol_approval_status = "Approved"
+		timesheet_doc.mol_auto_approved = "Yes"
 		try:
 			timesheet_doc.submit()
 		except Exception as e:
