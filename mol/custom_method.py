@@ -6,7 +6,7 @@ from frappe import _
 def auto_approve_leaves():
 	leave_pending_approval = frappe.db.sql('''select name
 												from `tabLeave Application`
-												where DATE(modified) = (DATE(CURDATE()) - INTERVAL 7 DAY)
+												where DATE(modified) <= (DATE(CURDATE()) - INTERVAL 7 DAY)
 												and docstatus = 0
 												and approval_status = 'Submitted'
 												''', as_dict = 1)
@@ -23,7 +23,7 @@ def auto_approve_leaves():
 def auto_approve_timesheet():
 	timesheet_pending_approval = frappe.db.sql('''select name
 													from `tabTimesheet`
-													where DATE(modified) = (DATE(CURDATE()) - INTERVAL 7 DAY)
+													where DATE(modified) <= (DATE(CURDATE()) - INTERVAL 7 DAY)
 													and docstatus = 0
 													and mol_approval_status = 'Submitted'
 												''', as_dict = 1)
