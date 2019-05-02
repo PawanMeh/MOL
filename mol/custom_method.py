@@ -74,8 +74,11 @@ def validate_leaves(self, method):
 		else:
 			frappe.throw(_("Please select comp off against which you are applying compensatory off"))
 	else:
-		if date_diff(today(), self.from_date) > 15:
-			frappe.throw(_("Leave application should be within 15 days of actual leave dates"))
+		if "HR Manager" in frappe.get_roles(frappe.session.user):
+			pass
+		else:
+			if date_diff(today(), self.from_date) > 15 and frappe.session.user != 'Administrator':
+				frappe.throw(_("Leave application should be within 15 days of actual leave dates"))
 
 	if self.docstatus == 1 and self.owner == frappe.session.user:
 		frappe.throw(_("You cannot approve your own document"))
