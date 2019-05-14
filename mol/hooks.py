@@ -110,6 +110,9 @@ doc_events = {
 		},
 	"Quotation": {
 		"validate": "mol.custom_method.validate_quote"
+		},
+	"Leave Allocation": {
+		"validate": "mol.custom_method.validate_leave_allocation"
 		}
 	}
 # Scheduled Tasks

@@ -106,3 +106,13 @@ def validate_so(self, method):
 def validate_quote(self, method):
 	if self.docstatus == 1 and self.owner == frappe.session.user:
 		frappe.throw(_("You cannot approve your own document"))
+
+def validate_leave_allocation(self, method):
+	if self.docstatus == 1:
+		if self.leave_type == "Compensatory off":
+			pass
+		else:
+			if "HR Manager" in frappe.get_roles(frappe.session.user):
+				pass
+			else:
+				frappe.throw(_("You do not have permission to submit leave allocation"))
